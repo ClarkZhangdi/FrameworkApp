@@ -1,0 +1,44 @@
+apply plugin: 'com.android.application'
+
+def COMPILESDKVERSION = rootProject.ext.android.compileSdkVersion
+def BUILDTOOLSVERSION = rootProject.ext.android.buildToolsVersion
+def TARGETSDKVERSION = rootProject.ext.android.targetSdkVersion
+def MINSDKVERSION = rootProject.ext.android.minSdkVersion
+
+android {
+    compileSdkVersion COMPILESDKVERSION
+    defaultConfig {
+        applicationId "jerome.com.frameworkapp"
+        minSdkVersion MINSDKVERSION
+        targetSdkVersion TARGETSDKVERSION
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:27.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
+//    配置model
+    implementation project(':mainlite')
+//   配置第三方插件
+    implementation rootProject.ext.dependencies["butterknife-implementation"]
+    annotationProcessor rootProject.ext.dependencies["butterknife-annotationProcessor"]
+}

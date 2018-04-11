@@ -1,0 +1,45 @@
+apply plugin: 'com.android.library'
+
+def COMPILESDKVERSION = rootProject.ext.android.compileSdkVersion
+def BUILDTOOLSVERSION = rootProject.ext.android.buildToolsVersion
+def TARGETSDKVERSION = rootProject.ext.android.targetSdkVersion
+def MINSDKVERSION = rootProject.ext.android.minSdkVersion
+
+android {
+    compileSdkVersion COMPILESDKVERSION
+
+
+
+    defaultConfig {
+        minSdkVersion MINSDKVERSION
+        targetSdkVersion TARGETSDKVERSION
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'com.android.support:appcompat-v7:27.1.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
+//    配置第三方插件
+    implementation rootProject.ext.dependencies["rxjava"]
+    implementation rootProject.ext.dependencies["rxandroid"]
+    implementation rootProject.ext.dependencies["gradelayout-v7"]
+    implementation rootProject.ext.dependencies["support-annotation"]
+}

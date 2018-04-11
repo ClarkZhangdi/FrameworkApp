@@ -1,0 +1,20 @@
+ext {
+    android = [
+            compileSdkVersion: 27,
+            buildToolsVersion: '',
+            minSdkVersion    : 17,
+            targetSdkVersion : 27
+    ]
+    dependencies = [
+            "rxjava"                         : 'io.reactivex.rxjava2:rxjava:2.1.12',
+            "rxandroid"                      : 'io.reactivex.rxjava2:rxandroid:2.0.2',
+            "butterknife-implementation"     : 'com.jakewharton:butterknife:8.8.1',
+            "butterknife-annotationProcessor": 'com.jakewharton:butterknife-compiler:8.8.1',
+            "gson"                           : 'com.google.code.gson:gson:2.8.2',
+            "okhttp"                         : 'com.squareup.okhttp3:okhttp:3.10.0',
+            "retrofit"                       : 'com.squareup.retrofit2:retrofit:2.4.0',
+            "recyclerview-v7"                : 'com.android.support:recyclerview-v7:27.1.0',
+            "gradelayout-v7"                 : 'com.android.support:gridlayout-v7:27.1.0',
+            "support-annotation"             : 'com.android.support:support-annotations:27.1.0',
+    ]
+}
